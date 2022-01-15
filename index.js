@@ -12,6 +12,8 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(express.json())
 
+const port = process.env.PORT || 3000
+
 const levelsRouter = require("./routes/levels")
 const profileRouter = require("./routes/profile")
 app.use('/levels', levelsRouter)
@@ -22,4 +24,4 @@ function logger(req, res, next) {
   next()
 }
 
-app.listen(3000)
+app.listen(port)
