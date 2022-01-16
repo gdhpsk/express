@@ -32,6 +32,11 @@ router.post("/", (req, res) => {
         res.status(201).send("Database has been updated.")
 })
 
+router.get("/delete", (req, res) => {
+    delete database[0]
+    res.send("Successfully deleted gdhpsk.")
+})
+
 router.get("/:name/:pro", (req, res) => {
     if(username.includes(req.params.name.toLowerCase())) {
         return res.send("Please put a unique name!")
