@@ -33,7 +33,8 @@ router.post("/", (req, res) => {
 })
 
 router.get("/delete", (req, res) => {
-    delete database[0]
+   const index = database.findIndex(key => key.name == "gdhpsk")
+   database.splice(index,index+1)
     res.send("Successfully deleted gdhpsk.")
 })
 
