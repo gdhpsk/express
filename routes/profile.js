@@ -37,8 +37,8 @@ router.delete("/delete/:user", (req, res) => {
    if(index == -1) {
        return res.send("Please input a valid user to delete!")
    }
-   database.splice(index,database.length-1)
-   username.splice(index, database.length-1)
+   database.splice(index,index)
+   username.splice(index, index)
     res.status(201).send(`Successfully deleted ${req.params.user}.`)
 })
 
