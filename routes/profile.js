@@ -39,7 +39,7 @@ router.delete("/delete/:user", (req, res) => {
    }
    database.splice(index,index+1)
    username.splice(index, index+1)
-    res.send(`Successfully deleted ${req.params.user}.`)
+    res.status(201).send(`Successfully deleted ${req.params.user}.`)
 })
 
 router.get("/:name/:pro", (req, res) => {
