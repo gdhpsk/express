@@ -32,12 +32,13 @@ router.post("/", (req, res) => {
         res.status(201).send("Database has been updated.")
 })
 
-router.get("/delete/:user", (req, res) => {
+router.delete("/delete/:user", (req, res) => {
    const index = database.findIndex(key => key.name == req.params.user)
    if(index == -1) {
        return res.send("Please input a valid user to delete!")
    }
    database.splice(index,index+1)
+   username.splice(index, index+1)
     res.send(`Successfully deleted ${req.params.user}.`)
 })
 
