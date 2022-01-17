@@ -19,7 +19,7 @@ app.use('/levels', levelsRouter)
 app.use('/profile', profileRouter)
 app.use("/clicks", clicksRouter)
 
-function logger(req, res, next) {
+function logger(req, res, next) { 
   console.log(`${req.method} ${req.originalUrl}`)
   next()
 }
