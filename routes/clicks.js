@@ -15,7 +15,7 @@ fs.writeFile('write.json', data, (err) => {
     if (err) {
         throw err; 
     }
-     console.log("JSON data is saved.");
+     console.log("JSON data is saved."); 
 
     })
 })
