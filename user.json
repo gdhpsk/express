@@ -1,28 +1,16 @@
 {
     "Questions": [
         {
-            "Question": "What is 3 + 4?",
-            "Answer": "7"
+            "Question": "How old is YtTanel?",
+            "Answer": "17"
         },
         {
-            "Question": "What is 9 + 6?",
-            "Answer": "15"
+            "Question": "How many years has it been since the release of 2.1?",
+            "Answer": "5"
         },
         {
-            "Question": "What is 19 + 1?",
-            "Answer": "20"
-        },
-        {
-            "Question": "What is 10 + 9?",
-            "Answer": "21"
-        },
-        {
-            "Question": "What is 1 + 2 + 3?",
-            "Answer": "6"
-        },
-        {
-            "Question": "What is sqrt(-1)?",
-            "Answer": "i"
+            "Question": "How many grains of sand are there?",
+            "Answer": "5 sextillion"
         }
     ]
 }
