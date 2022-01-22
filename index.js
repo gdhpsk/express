@@ -2,6 +2,8 @@ const express = require('express')
 
 const app = express()
 
+const fs = require("fs")
+
 app.set("view engine", "ejs")
 
 app.use(logger)
@@ -12,14 +14,11 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(express.json())
 
-const levelsRouter = require("./routes/levels") 
-const profileRouter = require("./routes/profile")
-const clicksRouter = require("./routes/clicks")
-app.use('/levels', levelsRouter)
-app.use('/profile', profileRouter)
-app.use("/clicks", clicksRouter)
+for(const file of fs.readdirSync('./routes/').filter(file => file.endsWith('.js'))) {
+  app.use(`/${file.replace(".js", "")}`, require(`./routes/${file}`))
+}
 
-function logger(req, res, next) { 
+function logger(req, res, next) {
   console.log(`${req.method} ${req.originalUrl}`)
   next()
 }
