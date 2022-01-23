@@ -3,7 +3,8 @@ const router = express.Router()
 const data = require("../user.json")
 
 router.get("/", (req, res) => {
-    res.render("answers.ejs", {firstQuestion: data.Questions[0].Question, QuestionAmount: data.Questions.length})
+    var obj = {firstQuestion: data.Questions[0].Question, QuestionAmount: data.Questions.length}
+    res.render("answers.ejs", obj)
 })
 
 router.post("/", (req, res) => {

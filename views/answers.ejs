@@ -1,62 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <script src=
-"https://code.jquery.com/jquery-3.5.1.js">
-    </script>
-<script type="application/javascript">
-        function lol() {
-            $.post('/answers/realdata', null, function(data, status, xhr) {
-                var answer;
-                for(let i = 0; i < data.Questions.length; i++) {
-                    if(document.getElementById("sure").textContent == data.Questions[i].Question) {
-                        answer = data.Questions[i].Answer
-                        break;
-                    }
-                }
-
-            if(answer.toLowerCase() != document.getElementById("jk").value.toLowerCase()) {
-                document.getElementById("alr").innerText = `Incorrect! The answer was ${answer}`
-            } else {
-                document.getElementById("alr").innerText = `Correct! The answer was indeed ${answer}`
-                document.getElementById("wtf").textContent = parseInt(document.getElementById("wtf").textContent)+1
-                document.getElementById("nah").textContent = `(${(parseInt(document.getElementById("wtf").textContent)/data.Questions.length)*100}%)`
-            }
-                if(data.Questions[data.Questions.length-1].Question == document.getElementById("sure").innerText) {
-                    document.getElementById("noob").style.display = "none"
-                    document.getElementById("hpsk").style.display = "none"
-                    const p = document.createElement("p")
-                    const but = document.createElement("button")
-                    but.textContent = "Retry"
-                    but.setAttribute("onclick", "window.location.reload()")
-                    p.textContent = `You have finished this quiz!`
-                    document.getElementById("fr").appendChild(p)
-                    document.getElementById("fr").appendChild(but)
-                    return
-                }
-            const button = document.getElementById("hpsk")
-            document.getElementById("hpsk").style.display = "block"
-            button.textContent = "Next"
-            button.setAttribute("onclick", "xd()")
-            button.setAttribute("id", "hpsk")
-            document.getElementById("noob").style.display = "none"
-        }, 'json')
-    }
-
-        function xd() {
-            $.post('/answers/realdata', null, function(data, status, xhr) {
-                for(let i = 0; i < data.Questions.length; i++) {
-                    if(data.Questions[i].Question == document.getElementById("sure").innerText) {
-                        document.getElementById("sure").innerText = data.Questions[i+1].Question
-                        break;
-                    }
-                }
-                document.getElementById("alr").innerText = ""
-                document.getElementById("jk").value = ""
-                document.getElementById("noob").style.display = "block"
-                document.getElementById("hpsk").style.display = "none"
-            }, 'json')
-        }
-    </script>
+    <script src="/joker/answers.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         p {
@@ -77,6 +21,7 @@
 </head>
 <body style="background-color: black;">
     <div id="fr">
+    <p>Time spent: <span id="helo">0</span> seconds</p>
     <p>Score: <span id="wtf">0</span>/<%= locals.QuestionAmount %> <span id="nah">(0%)</span></p>
   <p>Question: <p id="sure"><%= locals.firstQuestion %></p></p>
   <input type="text" name="lol" id="jk">
