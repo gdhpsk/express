@@ -3,6 +3,11 @@ var script = document.createElement("script")
 script.src = "https://code.jquery.com/jquery-3.5.1.js"
 script.type = "text/javascript"
 document.getElementsByTagName("head")[0].appendChild(script)
+document.getElementById("jk").addEventListener("keyup", function(event) {
+    if(event.key == "Enter") {
+        document.getElementById("noob").click();
+    }
+  });
 var num = 0
 var percent = 0
 function trol() {
@@ -32,7 +37,8 @@ function lol() {
         document.getElementById("alr").innerText = `Correct! The answer was indeed ${answer}`
         document.getElementById("wtf").textContent = parseInt(document.getElementById("wtf").textContent)+1
         document.getElementById("nah").textContent = `(${Math.round(100*((parseInt(document.getElementById("wtf").textContent)/data.Questions.length)*100))/100}%)`
-        percent = Math.round(100*((parseInt(percent)/data.Questions.length)*100))/100
+        percent = Math.round(100*((parseInt(document.getElementById("wtf").textContent)/data.Questions.length)*100))/100
+        console.log(percent)
     }
         if(data.Questions[data.Questions.length-1].Question == document.getElementById("sure").innerText) {
             document.getElementById("noob").style.display = "none"
