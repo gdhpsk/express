@@ -3,21 +3,25 @@ var script = document.createElement("script")
 script.src = "https://code.jquery.com/jquery-3.5.1.js"
 script.type = "text/javascript"
 document.getElementsByTagName("head")[0].appendChild(script)
-document.getElementById("jk").addEventListener("keyup", function(event) {
-    if(event.key == "Enter") {
-        document.getElementById("noob").click();
-    }
-  });
 var num = 0
 var percent = 0
 function trol() {
+    $.post('/answers/realdata', null, function(data, status, xhr) {
     document.getElementById("helo").innerText = (Math.round((parseFloat(document.getElementById("helo").innerText)+0.01)*1000)/1000)
-    if(parseFloat(document.getElementById("helo").innerText) > 4) {
+    if(parseFloat(document.getElementById("helo").innerText) > data.maximumTime) {
         document.getElementById("helo").style.color = "red"
     }
+}, 'json')
 }
 var count = setInterval(trol, 10)
 let fg = () => clearInterval(count)
+
+document.getElementById("jk").addEventListener("keyup", function hjk(event) {
+    if(event.key == "Enter") {
+        document.getElementById("noob").click();
+        document.getElementById("jk").removeEventListener("keyup", hjk)
+    }
+});
 
 function lol() {
     $.post('/answers/realdata', null, function(data, status, xhr) {
@@ -51,7 +55,7 @@ function lol() {
             but.textContent = "Retry"
             but.setAttribute("onclick", "window.location.reload()")
             p.textContent = `You finished this quiz in ${num} seconds`
-            if(num > 12) {
+            if(num > data.maximumTime*data.Questions.length) {
                 p.style.color = "red"
                 p.textContent += " (terrible)"
             }
@@ -60,6 +64,11 @@ function lol() {
             document.getElementById("fr").appendChild(but)
             return
         }
+       /* document.getElementById("hpsk").addEventListener("keyup", function(event) {
+            if(event.key == "Enter") {
+                document.getElementById("hpsk").click();
+            }
+          });*/
     const button = document.getElementById("hpsk")
     document.getElementById("hpsk").style.display = "block"
     button.textContent = "Next"
@@ -83,6 +92,14 @@ function xd() {
         document.getElementById("hpsk").style.display = "none"
         document.getElementById("helo").style.color = "white"
         document.getElementById("helo").innerText = 0
+        document.getElementById("jk").focus()
+
+        document.getElementById("jk").addEventListener("keyup", function hjk(event) {
+            if(event.key == "Enter") {
+                document.getElementById("noob").click();
+                document.getElementById("jk").removeEventListener("keyup", hjk)
+            }
+        });
         count = setInterval(trol, 10)
     }, 'json')
 }

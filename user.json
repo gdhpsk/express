@@ -1,4 +1,6 @@
 {
+    "Set1": {
+    "maximumTime": 2,
     "Questions": [
         {
             "Question": "How old is YtTanel?",
@@ -10,7 +12,12 @@
         },
         {
             "Question": "How many grains of sand are there?",
-            "Answer": "5 sextillion"
+            "Answer": "5 sextillion" 
+        },
+        {
+            "Question": "Is Karthik cool?", 
+            "Answer": "true" 
         }
     ]
+}
 }
