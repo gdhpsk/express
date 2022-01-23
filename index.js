@@ -10,7 +10,7 @@ app.use(logger)
 
 app.use(express.static("public"))
 
-app.use("/joker/", express.static("js"))
+app.use("/joker/", express.static("JS"))
 
 app.use(express.urlencoded({ extended: true }))
 
