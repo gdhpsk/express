@@ -31,8 +31,8 @@ function lol() {
     } else {
         document.getElementById("alr").innerText = `Correct! The answer was indeed ${answer}`
         document.getElementById("wtf").textContent = parseInt(document.getElementById("wtf").textContent)+1
-        document.getElementById("nah").textContent = `(${Math.round(1000*((parseInt(document.getElementById("wtf").textContent)/data.Questions.length)*100))/1000}%)`
-        percent = (parseInt(document.getElementById("wtf").textContent)/data.Questions.length)*100
+        document.getElementById("nah").textContent = `(${Math.round(100*((parseInt(document.getElementById("wtf").textContent)/data.Questions.length)*100))/100}%)`
+        percent = Math.round(100*((parseInt(percent)/data.Questions.length)*100))/100
     }
         if(data.Questions[data.Questions.length-1].Question == document.getElementById("sure").innerText) {
             document.getElementById("noob").style.display = "none"
