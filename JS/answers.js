@@ -7,13 +7,13 @@ var num = 0
 var percent = 0
 function trol() {
     $.post('/answers/realdata', null, function(data, status, xhr) {
-    document.getElementById("helo").innerText = (Math.round((parseFloat(document.getElementById("helo").innerText)+0.01)*1000)/1000)
+    document.getElementById("helo").innerText = (Math.round((parseFloat(document.getElementById("helo").innerText)+0.1)*100)/100)
     if(parseFloat(document.getElementById("helo").innerText) > data.maximumTime) {
         document.getElementById("helo").style.color = "red"
     }
 }, 'json')
 }
-var count = setInterval(trol, 10)
+var count = setInterval(trol, 100)
 let fg = () => clearInterval(count)
 
 document.getElementById("jk").addEventListener("keyup", function hjk(event) {
@@ -100,6 +100,6 @@ function xd() {
                 document.getElementById("jk").removeEventListener("keyup", hjk)
             }
         });
-        count = setInterval(trol, 10)
+        count = setInterval(trol, 100)
     }, 'json')
 }
