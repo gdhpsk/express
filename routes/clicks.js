@@ -13,7 +13,7 @@ router.get("/json", (req, res) => {
         const data = JSON.stringify({"numbers": buttonclicks.numbers+1});
 fs.writeFile('write.json', data, (err) => {
     if (err) {
-        throw err; 
+        throw err;  
     }
      console.log("JSON data is saved."); 
 
