@@ -2,6 +2,10 @@ const express = require('express')
 
 const app = express()
 
+const mongoose = require("mongoose")
+
+mongoose.connect("mongodb+srv://gdhpsk:+jju667yyj3it+C@gdhpsk-data.ldfbk.mongodb.net/")
+
 const fs = require("fs")
 
 app.set("view engine", "ejs")
@@ -21,6 +25,10 @@ for(const file of fs.readdirSync('./routes/').filter(file => file.endsWith('.js'
 }
 
 function logger(req, res, next) {
+  if(req.originalUrl == "/answers/realdata") {
+    next()
+    return
+  }
   console.log(`${req.method} ${req.originalUrl}`)
   next()
 }
