@@ -6,7 +6,7 @@ const mongoose = require("mongoose")
 
 const fs = require("fs")
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI).catch(err => console.log(err))
 
 app.set("view engine", "ejs")
 
