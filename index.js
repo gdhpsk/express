@@ -4,7 +4,9 @@ const app = express()
 
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb+srv://gdhpsk:+jju667yyj3it+C@gdhpsk-data.ldfbk.mongodb.net/")
+const uri = process.env.MONGODB_URI
+
+mongoose.connect(uri)
 
 const fs = require("fs")
 
