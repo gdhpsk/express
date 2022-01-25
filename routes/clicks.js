@@ -4,7 +4,6 @@ const got = import("got")
 router.use(express.urlencoded({ extended: true }))
 const fs = require("fs")
 const mongoose = require("mongoose")
-mongoose.connect(process.env.MONGO_URI)
 const db = mongoose.model("clicks")
 
 router.get("/", async (req, res) => {

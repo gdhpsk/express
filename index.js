@@ -6,6 +6,8 @@ const mongoose = require("mongoose")
 
 const fs = require("fs")
 
+mongoose.connect(process.env.MONGO_URI)
+
 app.set("view engine", "ejs")
 
 app.use(logger)
