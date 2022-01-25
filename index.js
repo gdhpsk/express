@@ -4,10 +4,6 @@ const app = express()
 
 const mongoose = require("mongoose")
 
-const uri = process.env.MONGODB_URI
-
-mongoose.connect(uri)
-
 const fs = require("fs")
 
 app.set("view engine", "ejs")
