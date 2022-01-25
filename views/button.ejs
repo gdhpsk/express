@@ -3,16 +3,13 @@
     <script src=
 "https://code.jquery.com/jquery-3.5.1.js">
     </script>
-<script>
+<script type="application/javascript">
         function lol() {
-     $.getJSON("/clicks/json", 
-            function (data) {
-                location = location.href
-            }
-     )
-                }
-</script>
-
+            $.post('/clicks/json', null, function(data, status, xhr) {
+                document.getElementById("lol").innerText = `clicks: ${data.clicks+1}`         
+            }, 'json')
+        }
+    </script>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
