@@ -3,7 +3,8 @@ const router = express.Router()
 const got = import("got")
 router.use(express.urlencoded({ extended: true }))
 const fs = require("fs")
-const db = require("../schemas/clicks")
+const mongoose = require("mongoose")
+const db = mongoose.model("clicks")
 
 router.get("/", async (req, res) => {
     var buttonclicks = await db.findById("61ef1f0c789f36709356fd92")
